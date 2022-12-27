@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    background-color: #f2e6e3;
+    font-family: Karla;
+}
+
+.app{
+    width: min(550px,90%);
+    border-radius: 12px;
+    margin-block: 2rem;
+    margin-inline: auto;
+    background-color: white;
+}
+
+.header{
+    width: 100%;
+    height: 65px;
+    border-radius: 12px 12px 0px 0px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    display: flex;
+}
+
+.header-body{
+    display: flex;
+    margin-inline: auto;
+    margin-block: auto;
+}
+
+.header-body img{
+    margin-block: auto;
+    margin-inline: 0.3rem;
+    width: 31.31px;
+    height: 26.22px;
+}
+
+.header-heading{
+    margin-block: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: -0.1em;
+    color: white;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-area{
+    width: 85%;
+    margin-inline: auto;
+    margin-block: 2rem 0.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-area > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1.2rem;
+    margin-inline: auto;
+}
+
+.input-area input{
+    border-radius: 7px;
+    border: 2px solid #f2e6e3;
+    width: 210px;
+    height: 35px;
+    font-size: 12px;
+    margin-inline: auto;
+    margin-block: 0.2rem;
+    padding: 4px;
+    text-align: center;
+}
+
+.input-area button{
+    width: 100%;
+    margin-block: 1rem;
+    height: 40px;
+    border-width: 0;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    font-style: normal;
+    color: white;
+    cursor: pointer;
+}
+
+.meme{
+    margin-inline: auto;
+    margin-block: 1rem 3rem;
+    width: 85%;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: anton;
+}
+
+.meme img{
+    object-fit: contain;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #fefbfa;
+}
+
+#top-text{
+    position: absolute;
+    padding: 0;
+    margin-block: 1rem;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke: 1px black;
+}
+
+#bottom-text{
+    position: absolute;
+    padding: 0;
+    margin-block: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    bottom: 0px;
+    color: white;
+    letter-spacing: 0.1rem;
+    -webkit-text-stroke: 1px black;
+}
