@@ -115,11 +115,13 @@ body {
     padding: 0;
     margin-block: 1rem;
     font-style: normal;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 400;
     color: white;
     letter-spacing: 0.1rem;
     -webkit-text-stroke: 1px black;
+    text-align: center;
+    width: 100%;
 }
 
 #bottom-text{
@@ -128,9 +130,11 @@ body {
     margin-block: 1rem;
     font-style: normal;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 2rem;
     bottom: 0px;
     color: white;
     letter-spacing: 0.1rem;
     -webkit-text-stroke: 1px black;
+    text-align: center;
+    width: 100%;
 }

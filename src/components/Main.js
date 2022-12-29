@@ -1,43 +1,57 @@
 import React from 'react';
-import MemeData from './memeData.js'
 
 export default function Main(){
-    const [memeImage, setMemeImage] = React.useState(MemeData.data.memes[2].url)
-    const [topText, setTopText] = React.useState("")
-    const [bottomText, setBottomText] = React.useState("")
+    const [meme, setMeme] = React.useState({
+        url: "https://i.imgflip.com/1ur9b0.jpg",
+        top: "",
+        bottom: ""
+    })
+
+    const [allMemes, setAllMemes] = React.useState([])
+
+    React.useEffect(() => {
+        async function getMemes() {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        }
+        getMemes()
+    },[])
 
     const memeGenerator = () => {
-        const memesArray = MemeData.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        setMemeImage(memesArray[randomNumber].url)
-        document.getElementById('upper').value = ""
-        document.getElementById('downer').value = ""
-        setTopText("")
-        setBottomText("")
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        document.getElementsByName('top')[0].value = ""
+        document.getElementsByName('bottom')[0].value = ""
+        setMeme({
+            url: url,
+            top: "",
+            bottom: ""
+        })
     }
 
-    const updateTop = () => {
-        const text = document.getElementById('upper').value.toUpperCase()
-        setTopText(text)
+    const updateText = (event) => {
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme,
+                [event.target.name]: event.target.value
+            }
+        })
     }
 
-    const updateBottom = () => {
-        const text = document.getElementById('downer').value.toUpperCase()
-        setBottomText(text)
-    }
     return(
         <div className='main'>
             <div className='input-area'>
                 <div>
-                    <input id='upper' type='text' placeholder='Top Text' onChange={updateTop}/>
-                    <input id='downer' type='text' placeholder='Bottom Text' onChange={updateBottom}/>
+                    <input name='top' type='text' placeholder='Top Text' onChange={updateText} value={meme.top}/>
+                    <input name='bottom' type='text' placeholder='Bottom Text' onChange={updateText} value={meme.bottom}/>
                 </div>
                 <button onClick={memeGenerator}>Get a new meme image</button>
             </div>
             <div className='meme'>
-                <p id='top-text'>{topText}</p>
-                <img src={memeImage} alt='meme' />
-                <p id='bottom-text'>{bottomText}</p>
+                <p id='top-text'>{meme.top.toUpperCase()}</p>
+                <img src={meme.url} alt='meme' />
+                <p id='bottom-text'>{meme.bottom.toUpperCase()}</p>
             </div>
         </div>
     )
